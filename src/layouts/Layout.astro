@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/index.css";
+
 interface Props {
   title: string;
   description?: string;
@@ -32,6 +33,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Header />
     <slot name="hero" />
     <main class="max-w-7xl mx-auto px-4 py-12">
       <slot />
