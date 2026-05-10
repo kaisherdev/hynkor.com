@@ -1,0 +1,70 @@
+---
+import Shield from "../assets/icons/Shield.astro";
+import Clock from "../assets/icons/Clock.astro";
+import CreditCard from "../assets/icons/CreditCard.astro";
+import Truck from "../assets/icons/Truck.astro";
+import Headphones from "../assets/icons/HeadPhones.astro";
+import Award from "../assets/icons/Award.astro";
+
+const features = [
+  {
+    icon: Truck,
+    title: "Envío Rápido",
+    description: "Entrega en 24-48 horas en Lima Metropolitana.",
+  },
+  {
+    icon: Shield,
+    title: "Garantía Extendida",
+    description: "Hasta 3 años de garantía en productos seleccionados",
+  },
+  {
+    icon: CreditCard,
+    title: "Pago Flexible",
+    description: "Múltiples opciones de pago y financiamiento",
+  },
+  {
+    icon: Headphones,
+    title: "Soporte 24/7",
+    description: "Asesoría técnica disponible siempre",
+  },
+  {
+    icon: Award,
+    title: "Productos Certificados",
+    description: "Solo vendemos productos originales y certificados",
+  },
+  {
+    icon: Clock,
+    title: "Instalación Incluida",
+    description: "Servicio de instalación y configuración gratuito",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl mb-4">¿Por Qué Elegirnos?</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Comprometidos con la excelencia en cada aspecto de nuestro servicio
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        features.map((feature) => (
+          <div class="flex gap-4 p-6 rounded-lg hover:bg-gray-50 transition-colors">
+            <div class="shrink-0">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <feature.icon h-6 w-6 text-blue-600 />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl mb-2">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
