@@ -3,6 +3,7 @@ import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import Categories from "../components/Categories.astro";
 import Features from "../components/Features.astro";
+import Services from "../components/Services.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -11,4 +12,5 @@ const { title, description } = Astro.props;
   <Hero slot="hero" />
   <Categories />
   <Features />
+  <Services />
 </Layout>

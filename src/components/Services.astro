@@ -1,0 +1,85 @@
+---
+import Monitor from "../assets/icons/Monitor.astro";
+import Server from "../assets/icons/Server.astro";
+import Code from "../assets/icons/Code.astro";
+import Bot from "../assets/icons/Bot.astro";
+import School from "../assets/icons/School.astro";
+import Tablet from "../assets/icons/Tablet.astro";
+
+const services = [
+  {
+    title: "Desarrollo Web y E-commerce",
+    description:
+      "Sitios web responsivos, plataformas e-commerce completas y soluciones web personalizadas con las mejores prácticas de UX/UI.",
+    icon: Code,
+    color: "bg-teal-100 text-teal-600",
+  },
+  {
+    title: "Desarrollo de Aplicaciones Móviles",
+    description:
+      "Creación de apps nativas e híbridas para iOS y Android, optimizadas para rendimiento y experiencia de usuario excepcional.",
+    icon: Tablet,
+    color: "bg-green-100 text-green-600",
+  },
+  {
+    title: "Inteligencia Artificial (IA)",
+    description:
+      "Implementación de inteligencia artificial para automatizar procesos, desarrollo de chatbots y soluciones de IoT (Internet de las cosas)",
+    icon: Bot,
+    color: "bg-emerald-100 text-emerald-600",
+  },
+  {
+    title: "Soporte Técnico",
+    description:
+      "Soporte técnico presencial y remoto para empresas y particulares. Mantenimiento preventivo y correctivo de equipos informáticos.",
+    icon: Monitor,
+    color: "bg-gray-100 text-gray-600",
+  },
+  {
+    title: "Gestión de Infraestructura de TI",
+    description:
+      "Operaciones de Data Center. Servicio técnico especializado para el mantenimiento preventivo de equipos informáticos, servidores, redes y sistemas de almacenamiento. Se realiza bajo protocolos técnicos y de higiene específicos para entornos de alta disponibilidad",
+    icon: Server,
+    color: "bg-slate-100 text-slate-600",
+  },
+  {
+    title: "Capacitación y Formación",
+    description:
+      "Cursos de programación (Python, JavaScript, TypeScript, etc.), Capacitación en ofimática (Office 365, Google Workspace, etc.), Formación en ciberseguridad y talleres de transformación digital.",
+    icon: School,
+    color: "bg-pink-100 text-pink-600",
+  },
+];
+---
+
+<section id="services" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl mb-4">Soluciones Tecnológicas</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Impulsamos la transformación digital de las empresas con los servicios
+        tecnológicos más demandados e innovadores.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        services.map((service) => (
+          <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+            <div
+              class={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 \${service.color}`}
+            >
+              <service.icon class="w-7 h-7" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
+              {service.title}
+            </h3>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              {service.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
