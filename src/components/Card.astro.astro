@@ -1,0 +1,38 @@
+---
+const { id, name, price, category, image_url } = Astro.props;
+---
+
+<div
+  class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden flex flex-col"
+>
+  <div class="relative overflow-hidden aspect-square bg-slate-50">
+    <img
+      src={image_url}
+      alt={name}
+      class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+    />
+    <span
+      class="absolute top-3 left-3 bg-slate-900 text-white text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded"
+    >
+      {category}
+    </span>
+  </div>
+
+  <div class="p-5 flex flex-col flex-grow:1">
+    <h3 class="text-lg font-semibold text-slate-800 mb-2 line-clamp-1">
+      {name}
+    </h3>
+
+    <div class="flex items-center justify-between mt-auto">
+      <span class="text-2xl font-bold text-blue-600">
+        S/ {price}
+      </span>
+      <a
+        href={`/product/${id}`}
+        class="bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
+      >
+        Detalles
+      </a>
+    </div>
+  </div>
+</div>
