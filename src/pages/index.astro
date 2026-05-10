@@ -1,10 +1,12 @@
 ---
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
+import Categories from "../components/Categories.astro";
 
 const { title, description } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
   <Hero slot="hero" />
+  <Categories />
 </Layout>
