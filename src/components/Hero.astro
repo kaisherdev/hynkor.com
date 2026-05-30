@@ -1,150 +1,150 @@
 ---
 const slides = [
-  {
-    label: "Equipos de cómputo ",
-    title:
-      "Notebook 2 en 1 Advance CN4058 versatilidad y potencia en un solo dispositivo",
-    description:
-      "La Advance CN4058 combina rendimiento y movilidad para profesionales y estudiantes. Su pantalla táctil 2 en 1, Windows 11 y configuración de 8 GB de RAM hacen que trabajar, presentar y conectar con clientes sea rápido y sencillo desde cualquier lugar.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Equipo técnológico",
-  },
-  {
-    label: "Software y Aplicaciones",
-    title:
-      "Windows 11, oficce 365 Business Standard y personal, antivirus kaspersky y Nod 32",
-    description:
-      "Maximiza la productividad de tu oficina con licencias seguras y actualizadas. Ofrecemos Windows 11 y Office 365 para el trabajo colaborativo, junto con antivirus confiables que protegen tu empresa contra amenazas digitales.",
-    image:
-      "https://images.unsplash.com/photo-1679269241012-f7640862d242?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Planta industrial con iluminación moderna",
-  },
-  {
-    label: "Servicio técnico",
-    title: "Soporte técnico preventivo y correctivo de equipos de computo",
-    description:
-      "Nuestro equipo técnico brinda mantenimiento preventivo y soporte correctivo para mantener tus equipos siempre operativos. Resolvemos fallas, optimizamos rendimiento y ofrecemos atención rápida para minimizar tiempos de inactividad.",
-    image:
-      "https://images.unsplash.com/photo-1633075401933-bf9afc3edef1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Personal de ingeniería revisando equipos",
-  },
+	{
+		label: "Equipos de cómputo ",
+		title:
+			"Notebook 2 en 1 Advance CN4058 versatilidad y potencia en un solo dispositivo",
+		description:
+			"La Advance CN4058 combina rendimiento y movilidad para profesionales y estudiantes. Su pantalla táctil 2 en 1, Windows 11 y configuración de 8 GB de RAM hacen que trabajar, presentar y conectar con clientes sea rápido y sencillo desde cualquier lugar.",
+		image:
+			"https://bbtflapplaucmplfismv.supabase.co/storage/v1/object/sign/hero/notebook-advance.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NjQwZTNlYi0xYTVjLTRkN2ItYmU4Ny04MTFhNjU0OGQ1YWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJoZXJvL25vdGVib29rLWFkdmFuY2UucG5nIiwiaWF0IjoxNzgwMTY0NTUyLCJleHAiOjE4MTE3MDA1NTJ9.xtBL5YI6valeapj6GQYbJbFf5KXRK3by-wt15uxSNAw",
+		alt: "Equipo técnológico",
+	},
+	{
+		label: "Software y Aplicaciones",
+		title:
+			"Windows 11, oficce 365 Business Standard y personal, antivirus kaspersky y Nod 32",
+		description:
+			"Maximiza la productividad de tu oficina con licencias seguras y actualizadas. Ofrecemos Windows 11 y Office 365 para el trabajo colaborativo, junto con antivirus confiables que protegen tu empresa contra amenazas digitales.",
+		image:
+			"https://images.unsplash.com/photo-1679269241012-f7640862d242?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		alt: "Planta industrial con iluminación moderna",
+	},
+	{
+		label: "Servicio técnico",
+		title: "Soporte técnico preventivo y correctivo de equipos de computo",
+		description:
+			"Nuestro equipo técnico brinda mantenimiento preventivo y soporte correctivo para mantener tus equipos siempre operativos. Resolvemos fallas, optimizamos rendimiento y ofrecemos atención rápida para minimizar tiempos de inactividad.",
+		image:
+			"https://images.unsplash.com/photo-1633075401933-bf9afc3edef1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		alt: "Personal de ingeniería revisando equipos",
+	},
 ];
 ---
 
 <section
-  id="hero-slider"
-  class="relative overflow-hidden bg-slate-950 text-white shadow-2xl shadow-slate-900/40 w-full"
+	id="hero-slider"
+	class="relative overflow-hidden bg-slate-950 text-white shadow-2xl shadow-slate-900/40 w-full"
 >
-  <div class="relative min-h-112 sm:min-h-136 lg:min-h-160">
-    {
-      slides.map((slide, index) => (
-        <article
-          data-hero-slide
-          data-index={index}
-          class={`absolute inset-0 transition-all duration-700 ease-in-out ${index === 0 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
-          aria-hidden={index !== 0}
-        >
-          <img
-            src={slide.image}
-            alt={slide.alt}
-            class="absolute inset-0 h-full w-full object-cover"
-          />
-          <div class="absolute inset-0 bg-linear-to-t from-slate-950/95 via-slate-950/50 to-slate-950/20" />
-          <div class="relative flex h-full flex-col justify-center px-2 py-4 sm:px-6 lg:px-16">
-            <span class="inline-flex items-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-xs uppercase tracking-[0.32em] text-emerald-300 mb-5 mx-auto">
-              {slide.label}
-            </span>
-            <h2 class="text-lg sm:text-4xl lg:text-6xl font-black leading-tight tracking-[-0.04em] text-white">
-              {slide.title}
-            </h2>
-            <p class="mt-5 max-w-2xl text-base sm:text-lg text-slate-200 text-balance">
-              {slide.description}
-            </p>
-          </div>
-        </article>
-      ))
-    }
-  </div>
+	<div class="relative min-h-112 sm:min-h-136 lg:min-h-160">
+		{
+			slides.map((slide, index) => (
+				<article
+					data-hero-slide
+					data-index={index}
+					class={`absolute inset-0 transition-all duration-700 ease-in-out ${index === 0 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+					aria-hidden={index !== 0}
+				>
+					<img
+						src={slide.image}
+						alt={slide.alt}
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+					<div class="absolute inset-0 bg-linear-to-t from-slate-950/95 via-slate-950/50 to-slate-950/20" />
+					<div class="relative flex h-full flex-col justify-center px-2 py-4 sm:px-6 lg:px-16">
+						<span class="inline-flex items-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-xs uppercase tracking-[0.32em] text-emerald-300 mb-5 mx-auto">
+							{slide.label}
+						</span>
+						<h2 class="text-lg sm:text-4xl lg:text-6xl font-black leading-tight tracking-[-0.04em] text-white">
+							{slide.title}
+						</h2>
+						<p class="mt-5 max-w-2xl text-base sm:text-lg text-slate-200 text-balance">
+							{slide.description}
+						</p>
+					</div>
+				</article>
+			))
+		}
+	</div>
 
-  <div
-    class="absolute inset-x-0 bottom-8 mx-auto flex max-w-7xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16"
-  >
-    <div class="flex flex-wrap gap-3">
-      <a
-        href="#products"
-        class="inline-flex items-center justify-center rounded-full bg-[#0d958c] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
-      >
-        Ver productos
-      </a>
-      <a
-        href="mailto:hynkor.dreadlock534@passinbox.com?subject=Solicitud%20de%20cotización"
-        class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
-      >
-        Solicitar cotización
-      </a>
-    </div>
-  </div>
+	<div
+		class="absolute inset-x-0 bottom-8 mx-auto flex max-w-7xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16"
+	>
+		<div class="flex flex-wrap gap-3">
+			<a
+				href="#products"
+				class="inline-flex items-center justify-center rounded-full bg-[#0d958c] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
+			>
+				Ver productos
+			</a>
+			<a
+				href="mailto:hynkor.dreadlock534@passinbox.com?subject=Solicitud%20de%20cotización"
+				class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+			>
+				Solicitar cotización
+			</a>
+		</div>
+	</div>
 
-  <div class="absolute bottom-4 right-4 flex items-center gap-2">
-    {
-      slides.map((_, index) => (
-        <button
-          type="button"
-          data-hero-indicator
-          data-index={index}
-          class="h-3 w-3 rounded-full bg-white/40 transition hover:bg-white"
-          aria-label={`Seleccione la imagen ${index + 1}`}
-        />
-      ))
-    }
-  </div>
+	<div class="absolute bottom-4 right-4 flex items-center gap-2">
+		{
+			slides.map((_, index) => (
+				<button
+					type="button"
+					data-hero-indicator
+					data-index={index}
+					class="h-3 w-3 rounded-full bg-white/40 transition hover:bg-white"
+					aria-label={`Seleccione la imagen ${index + 1}`}
+				/>
+			))
+		}
+	</div>
 
-  <script is:inline>
-    const root = document.getElementById("hero-slider");
-    if (root) {
-      const slides = Array.from(root.querySelectorAll("[data-hero-slide]"));
-      const indicators = Array.from(
-        root.querySelectorAll("[data-hero-indicator]"),
-      );
-      let currentIndex = 0;
-      let timer;
+	<script is:inline>
+		const root = document.getElementById("hero-slider");
+		if (root) {
+			const slides = Array.from(root.querySelectorAll("[data-hero-slide]"));
+			const indicators = Array.from(
+				root.querySelectorAll("[data-hero-indicator]"),
+			);
+			let currentIndex = 0;
+			let timer;
 
-      const setActive = (index) => {
-        currentIndex = index;
-        slides.forEach((slide, slideIndex) => {
-          const active = slideIndex === currentIndex;
-          slide.classList.toggle("opacity-100", active);
-          slide.classList.toggle("translate-x-0", active);
-          slide.classList.toggle("pointer-events-none", !active);
-          slide.classList.toggle("opacity-0", !active);
-          slide.classList.toggle("translate-x-8", !active);
-          slide.setAttribute("aria-hidden", String(!active));
-        });
+			const setActive = (index) => {
+				currentIndex = index;
+				slides.forEach((slide, slideIndex) => {
+					const active = slideIndex === currentIndex;
+					slide.classList.toggle("opacity-100", active);
+					slide.classList.toggle("translate-x-0", active);
+					slide.classList.toggle("pointer-events-none", !active);
+					slide.classList.toggle("opacity-0", !active);
+					slide.classList.toggle("translate-x-8", !active);
+					slide.setAttribute("aria-hidden", String(!active));
+				});
 
-        indicators.forEach((button, buttonIndex) => {
-          button.classList.toggle("bg-white", buttonIndex === currentIndex);
-          button.classList.toggle("bg-white/40", buttonIndex !== currentIndex);
-        });
-      };
+				indicators.forEach((button, buttonIndex) => {
+					button.classList.toggle("bg-white", buttonIndex === currentIndex);
+					button.classList.toggle("bg-white/40", buttonIndex !== currentIndex);
+				});
+			};
 
-      const nextSlide = () => {
-        setActive((currentIndex + 1) % slides.length);
-      };
+			const nextSlide = () => {
+				setActive((currentIndex + 1) % slides.length);
+			};
 
-      root.addEventListener("click", (event) => {
-        const button = event.target.closest("[data-hero-indicator]");
-        if (!button) return;
-        const selectedIndex = Number(button.dataset.index);
-        if (!Number.isNaN(selectedIndex)) {
-          setActive(selectedIndex);
-          window.clearInterval(timer);
-          timer = window.setInterval(nextSlide, 7000);
-        }
-      });
+			root.addEventListener("click", (event) => {
+				const button = event.target.closest("[data-hero-indicator]");
+				if (!button) return;
+				const selectedIndex = Number(button.dataset.index);
+				if (!Number.isNaN(selectedIndex)) {
+					setActive(selectedIndex);
+					window.clearInterval(timer);
+					timer = window.setInterval(nextSlide, 7000);
+				}
+			});
 
-      timer = window.setInterval(nextSlide, 7000);
-      setActive(0);
-    }
-  </script>
+			timer = window.setInterval(nextSlide, 7000);
+			setActive(0);
+		}
+	</script>
 </section>
