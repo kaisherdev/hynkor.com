@@ -17,7 +17,7 @@ const slides = [
 		description:
 			"Maximiza la productividad de tu oficina con licencias seguras y actualizadas. Ofrecemos Windows 11 y Office 365 para el trabajo colaborativo, junto con antivirus confiables que protegen tu empresa contra amenazas digitales.",
 		image:
-			"https://images.unsplash.com/photo-1679269241012-f7640862d242?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"https://bbtflapplaucmplfismv.supabase.co/storage/v1/object/sign/hero/software.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NjQwZTNlYi0xYTVjLTRkN2ItYmU4Ny04MTFhNjU0OGQ1YWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJoZXJvL3NvZnR3YXJlLnBuZyIsImlhdCI6MTc4MDE2NTY0MSwiZXhwIjoxODExNzAxNjQxfQ.VoMmVFJXJ7xZJRDgDjFsM5Qf8KAmA4PnFZj9CNqr9Mw",
 		alt: "Planta industrial con iluminación moderna",
 	},
 	{
@@ -26,7 +26,7 @@ const slides = [
 		description:
 			"Nuestro equipo técnico brinda mantenimiento preventivo y soporte correctivo para mantener tus equipos siempre operativos. Resolvemos fallas, optimizamos rendimiento y ofrecemos atención rápida para minimizar tiempos de inactividad.",
 		image:
-			"https://images.unsplash.com/photo-1633075401933-bf9afc3edef1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"https://bbtflapplaucmplfismv.supabase.co/storage/v1/object/sign/hero/soporte-tecnico.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81NjQwZTNlYi0xYTVjLTRkN2ItYmU4Ny04MTFhNjU0OGQ1YWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJoZXJvL3NvcG9ydGUtdGVjbmljby5wbmciLCJpYXQiOjE3ODAxNjUxNzUsImV4cCI6MTgxMTcwMTE3NX0.KSCBjp_8ttqX98YGdt575Zgo5O2S6iN_QMcW2LDAy7w",
 		alt: "Personal de ingeniería revisando equipos",
 	},
 ];
@@ -42,20 +42,21 @@ const slides = [
 				<article
 					data-hero-slide
 					data-index={index}
-					class={`absolute inset-0 transition-all duration-700 ease-in-out ${index === 0 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+					class={`absolute inset-0 transition-all duration-700 ease-in-out ${index === 0 ? "opacity-90 translate-x-0" : "opacity-0 translate-x-8"}`}
 					aria-hidden={index !== 0}
 				>
 					<img
 						src={slide.image}
 						alt={slide.alt}
-						class="absolute inset-0 h-full w-full object-cover"
+						loading="lazy"
+						class="absolute inset-0 h-full w-full object-cover object-bottom-right"
 					/>
 					<div class="absolute inset-0 bg-linear-to-t from-slate-950/95 via-slate-950/50 to-slate-950/20" />
-					<div class="relative flex h-full flex-col justify-center px-2 py-4 sm:px-6 lg:px-16">
+					<div class="relative flex max-w-5xl h-full flex-col justify-center px-2 py-4 sm:px-6 lg:px-16">
 						<span class="inline-flex items-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-xs uppercase tracking-[0.32em] text-emerald-300 mb-5 mx-auto">
 							{slide.label}
 						</span>
-						<h2 class="text-lg sm:text-4xl lg:text-6xl font-black leading-tight tracking-[-0.04em] text-white">
+						<h2 class="text-lg sm:text-4xl lg:text-6xl font-black leading-tight tracking-[-0.04em] text-white text-balance">
 							{slide.title}
 						</h2>
 						<p class="mt-5 max-w-2xl text-base sm:text-lg text-slate-200 text-balance">
