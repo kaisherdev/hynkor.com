@@ -52,6 +52,11 @@ export const prerender = true;
             <div>
               <h2 class="text-xl font-semibold mb-2">Descripción</h2>
               <p class="text-gray-700 leading-relaxed">{product.description}</p>
+              {product.stock > 0 ? (
+                <p class="text-xl font-semibold mb-2">Stock disponible: {product.stock}</p>
+              ) : (
+                <p class="text-xl font-semibold mb-2 text-red-600">Sin stock</p>
+              )}
             </div>
           )
         }
@@ -79,7 +84,7 @@ export const prerender = true;
 
         <div class="pt-4">
           <a
-            href="/"
+            href="/#products"
             class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-200"
           >
             ← Volver al catálogo
