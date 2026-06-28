@@ -1,96 +1,110 @@
 ---
 import { supabase } from "../../db/supabase.js";
 import Layout from "../../layouts/Layout.astro";
+import { AddToCartButton } from "../../components/AddToCartButton";
 
 export async function getStaticPaths() {
-  const { data: products } = await supabase.from("products").select("id");
+	const { data: products } = await supabase.from("products").select("id");
 
-  return (products || []).map((product) => ({
-    params: { id: product.id.toString() },
-  }));
+	return (products || []).map((product) => ({
+		params: { id: product.id.toString() },
+	}));
 }
 
 const { id } = Astro.params;
 
 const { data: product, error } = await supabase
-  .from("products")
-  .select("*")
-  .eq("id", id)
-  .single();
+	.from("products")
+	.select("*")
+	.eq("id", id)
+	.single();
 
 if (error || !product) {
-  return Astro.redirect("/404");
+	return Astro.redirect("/404");
 }
 
 export const prerender = true;
 ---
 
 <Layout title={`Detalles del producto - ${product.name}`}>
-  <main class="container mx-auto px-4 mt-16">
-    <div class="flex flex-col lg:flex-row gap-8">
-      <div class="w-full lg:w-1/2">
-        <img
-          src={product.image_url}
-          alt={product.name}
-          class="w-full h-auto object-contain rounded-lg shadow-md"
-          loading="lazy"
-        />
-      </div>
-      <div class="lg:w-1/2 space-y-6">
-        <div>
-          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-            {product.name}
-          </h1>
-          <p class="text-xl font-semibold text-blue-600">S/ {product.price}</p>
-          <p class="text-sm text-gray-600 uppercase tracking-wide">
-            {product.category}
-          </p>
-        </div>
+	<main class="container mx-auto px-4 mt-16">
+		<div class="flex flex-col lg:flex-row gap-8">
+			<div class="w-full lg:w-1/2">
+				<img
+					src={product.image_url}
+					alt={product.name}
+					class="w-full h-auto object-contain rounded-lg shadow-md"
+					loading="lazy"
+				/>
+			</div>
+			<div class="lg:w-1/2 space-y-6">
+				<div>
+					<h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+						{product.name}
+					</h1>
+					<p class="text-xl font-semibold text-blue-600">S/ {product.price}</p>
+					<p class="text-sm text-gray-600 uppercase tracking-wide">
+						{product.category}
+					</p>
+				</div>
 
-        {
-          product.description && (
-            <div>
-              <h2 class="text-xl font-semibold mb-2">Descripción</h2>
-              <p class="text-gray-700 leading-relaxed">{product.description}</p>
-              {product.stock > 0 ? (
-                <p class="text-xl font-semibold mb-2">Stock disponible: {product.stock}</p>
-              ) : (
-                <p class="text-xl font-semibold mb-2 text-red-600">Sin stock</p>
-              )}
-            </div>
-          )
-        }
+				{
+					product.description && (
+						<div>
+							<h2 class="text-xl font-semibold mb-2">Descripción</h2>
+							<p class="text-gray-700 leading-relaxed">{product.description}</p>
+							{product.stock > 0 ? (
+								<p class="text-xl font-semibold mb-2">
+									Stock disponible: {product.stock}
+								</p>
+							) : (
+								<p class="text-xl font-semibold mb-2 text-red-600">Sin stock</p>
+							)}
+						</div>
+					)
+				}
 
-        {
-          product.specifications &&
-            typeof product.specifications === "object" && (
-              <div>
-                <h3 class="text-lg font-semibold mb-3 uppercase tracking-wide">
-                  Especificaciones Técnicas
-                </h3>
-                <ul class="space-y-2">
-                  {Object.entries(product.specifications).map(
-                    ([key, value]) => (
-                      <li class="flex justify-between border-b border-gray-200 pb-1">
-                        <strong class="text-gray-800">{key}:</strong>
-                        <span class="text-gray-600">{value}</span>
-                      </li>
-                    ),
-                  )}
-                </ul>
-              </div>
-            )
-        }
+				{
+					product.specifications &&
+						typeof product.specifications === "object" && (
+							<div>
+								<h3 class="text-lg font-semibold mb-3 uppercase tracking-wide">
+									Especificaciones Técnicas
+								</h3>
+								<ul class="space-y-2">
+									{Object.entries(product.specifications).map(
+										([key, value]) => (
+											<li class="flex justify-between border-b border-gray-200 pb-1">
+												<strong class="text-gray-800">{key}:</strong>
+												<span class="text-gray-600">{value}</span>
+											</li>
+										),
+									)}
+								</ul>
+							</div>
+						)
+				}
 
-        <div class="pt-4">
-          <a
-            href="/#products"
-            class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-200"
-          >
-            ← Volver al catálogo
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
+				<div class="flex flex-col gap-2 justify-center items-center">
+					{ product.stock > 0? (
+						<AddToCartButton product={product} client:load />
+						<a
+							href="/#products"
+							class="w-full text-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-200"
+						>
+							← Volver al catálogo
+						</a>
+					):(
+						<a
+							href="/#products"
+							class="w-full text-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-200"
+						>
+							← Volver al catálogo
+						</a>
+					)
+					}
+				</div>
+			</div>
+		</div>
+	</main>
 </Layout>
