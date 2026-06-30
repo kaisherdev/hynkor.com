@@ -31,7 +31,7 @@ const menuitems = [
 const logoAlt = "Logo de Hynkor Technologies";
 ---
 
-<header class="w-full fixed border-b top-0 z-50 text-white">
+<header class="w-full fixed border-b top-0 z-50 bg-white">
 	<nav
 		class="flex justify-between items-center gap-8 h-16 lg:max-w-5xl lg:mx-auto mx-4 m-2"
 	>
@@ -130,14 +130,15 @@ const logoAlt = "Logo de Hynkor Technologies";
 	</dialog>
 </header>
 <CartPanel client:load />
+
 <style>
-	header {
+	/* header {
 		background: transparent;
 		animation: header-blur-scroll linear both;
 		animation-timeline: scroll();
 		animation-range: 0 250px;
 		border-bottom: 1px solid transparent;
-	}
+	} */
 
 	@keyframes header-blur-scroll {
 		0% {
