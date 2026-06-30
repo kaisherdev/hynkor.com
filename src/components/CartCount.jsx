@@ -10,11 +10,11 @@ function CartCount() {
 	return (
 		<button
 			onClick={openCart}
-			className="relative cursor-pointer hover:opacity-80 transition-opacity"
+			class="relative cursor-pointer hover:opacity-80 transition-opacity"
 		>
-			<span className="bg-slate-200 rounded-full p-1 text-2xl">🛒</span>
+			<span className="bg-slate-200 rounded-full p-1 text-lg">🛒</span>
 			{$count > 0 && (
-				<span className="absolute flex justify-center items-center w-5 h-5 bg-red-500 text-xs font-semibold rounded-full -top-2 -right-2">
+				<span className="absolute flex justify-center items-center w-4 h-4 bg-red-500 text-xs font-semibold rounded-full -top-2 -right-2">
 					{$count}
 				</span>
 			)}
