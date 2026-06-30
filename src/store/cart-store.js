@@ -17,7 +17,7 @@ export const cartCount = computed(cartItems, (items) => {
 	);
 });
 
-export function addCartItem(id, name, price, image_url) {
+export function addCartItem({ id, name, price, image_url }) {
 	if (!id || !name || price === undefined || price < 0) {
 		console.warn("Producto inválido. No se puede agregar al carrito.", { id, name, price });
 		return false;
@@ -54,16 +54,14 @@ export function clearCart() {
 	cartItems.set({});
 }
 
-export function persistCart() {
-	const storedCart = localStorage.getItem('cart');
-	if (storedCart) {
+// Persistencia en localStorage
+if (typeof window !== 'undefined') {
+	const savedCart = localStorage.getItem('cart');
+	if (savedCart) {
 		try {
-			const parsedCart = JSON.parse(storedCart);
-			if (typeof parsedCart === 'object' && parsedCart !== null) {
-				cartItems.set(parsedCart);
-			}
+			cartItems.set(JSON.parse(savedCart));
 		} catch (error) {
-			console.error("Error al parsear el carrito almacenado:", error);
+			console.error('Error loading cart from localStorage:', error);
 		}
 	}
 
