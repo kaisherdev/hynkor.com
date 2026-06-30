@@ -1,5 +1,5 @@
-import { cartCount, cartOpen } from "../store/cart-store";
 import { useStore } from "@nanostores/preact";
+import { cartCount, cartOpen } from "../store/cart-store";
 
 function CartCount() {
 	const $count = useStore(cartCount);
@@ -9,8 +9,8 @@ function CartCount() {
 	};
 	return (
 		<button
-			className="relative cursor-pointer hover:opacity-80 transition-opacity"
 			onClick={openCart}
+			className="relative cursor-pointer hover:opacity-80 transition-opacity"
 		>
 			<span className="bg-slate-200 rounded-full p-1 text-2xl">🛒</span>
 			{$count > 0 && (
