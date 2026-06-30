@@ -39,6 +39,7 @@ const logoAlt = "Logo de Hynkor Technologies";
 			<a href="/">
 				<img src="/logo.svg" alt={logoAlt} class="lg:size-14 size-12" />
 			</a>
+			<!-- <CartCount client:load /> -->
 			<div class="flex lg:hidden">
 				<button type="button" id="open-menu-button" class="cursor-pointer">
 					<span class="sr-only">Abrir Menú Principal</span>
@@ -65,15 +66,16 @@ const logoAlt = "Logo de Hynkor Technologies";
 				}
 			</ul>
 		</div>
-
-		<div class="hidden lg:flex items-center gap-4">
-			<SocialPill
-				aria-hidden="true"
-				href="mailto:hynkor.dreadlock534@passinbox.com"
-				class="hidden lg:inline-block bg-[#0d958c] px-6 py-3 rounded-full hover:bg-emerald-400 hover:text-white text-sm font-semiboldS"
-			>
-				Escríbenos
-			</SocialPill>
+		<div class="flex gap-2">
+			<div class="hidden lg:flex items-center gap-4">
+				<SocialPill
+					aria-hidden="true"
+					href="mailto:hynkor.dreadlock534@passinbox.com"
+					class="hidden lg:inline-block bg-[#0d958c] px-6 py-3 rounded-full hover:bg-emerald-400 hover:text-white text-sm font-semiboldS"
+				>
+					Escríbenos
+				</SocialPill>
+			</div>
 			<CartCount client:load />
 		</div>
 	</nav>
@@ -123,7 +125,6 @@ const logoAlt = "Logo de Hynkor Technologies";
 					>
 						Escríbenos
 					</SocialPill>
-					<CartCount client:load />
 				</div>
 			</div>
 		</div>
