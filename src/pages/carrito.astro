@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { CartList } from "../components/CartList.jsx";
+---
+
+<Layout title="Tu carrito">
+	<main class="h-screen py-12 max-w-2xl mx-auto px-4">
+		<h1 class="text-3xl text-center mb-8 font-bold">Resumen de compra</h1>
+		<CartList client:load />
+		<div class="text-center mt-8">
+			<a href="/#products" class="text-blue-600 hover:underline">
+				← Seguir viendo productos
+			</a>
+		</div>
+	</main>
+</Layout>
