@@ -44,38 +44,41 @@ function CartList() {
 						class="flex justify-between items-center border-b py-4"
 					>
 						<div class="flex-1">
-							<h4 class="font-bold">{name}</h4>
-							<p class="text-sm text-gray-500">Cant: {item.quantity}</p>
-						</div>
-						<div class="flex items-center gap-3">
-							<div class="flex gap-2">
+							<h4 class="font-semibold">{name}</h4>
+							<p class="text-sm text-gray-500 pb-2">
+								Precio Unit.: S/ {item.price.toFixed(2)}
+							</p>
+
+							<div class="flex justify-between items-center gap-3">
+								<div class="flex gap-2">
+									<button
+										onClick={() =>
+											updateCartItemQuantity(item.id, item.quantity - 1)
+										}
+										class="bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded text-sm"
+									>
+										−
+									</button>
+									<span class="px-2 min-w-8 text-center">{item.quantity}</span>
+									<button
+										onClick={() =>
+											updateCartItemQuantity(item.id, item.quantity + 1)
+										}
+										class="bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded text-sm"
+									>
+										+
+									</button>
+								</div>
+								<span class="font-semibold min-w-20 text-right">
+									S/ {(price * item.quantity).toFixed(2)}
+								</span>
 								<button
-									onClick={() =>
-										updateCartItemQuantity(item.id, item.quantity - 1)
-									}
-									class="bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded text-sm"
+									onClick={() => removeCartItem(item.id)}
+									class="ml-2 text-red-500 hover:text-red-700 font-bold"
 								>
-									−
-								</button>
-								<span class="px-2 min-w-8 text-center">{item.quantity}</span>
-								<button
-									onClick={() =>
-										updateCartItemQuantity(item.id, item.quantity + 1)
-									}
-									class="bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded text-sm"
-								>
-									+
+									✕
 								</button>
 							</div>
-							<span class="font-semibold min-w-20 text-right">
-								S/ {price * item.quantity}
-							</span>
-							<button
-								onClick={() => removeCartItem(item.id)}
-								class="ml-2 text-red-500 hover:text-red-700 font-bold"
-							>
-								✕
-							</button>
 						</div>
 					</div>
 				);
